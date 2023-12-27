@@ -1,0 +1,116 @@
+<van-row>
+  <van-col span="24">
+    <view class="main">
+      <button class="submit" wx:if="{{!submit}}">提交</button>
+      <button class="submit_success" wx:else bindtap="submit_score" >提交</button>
+      <van-notice-bar left-icon="volume-o" scrollable text="👉动动手指，评价商品可以得到更多人品值哦~" />
+      <van-col span="24">
+        <view class="qs_view" style="height: {{viewHeight}}px;">
+          <text class="t1">您对骑手满意吗？</text><text class="t2">已对骑手匿名</text>
+        </view>
+        <view class="line1"></view>
+        <van-image class="qs_img" radius='10px' lazy-load src="https://i.postimg.cc/Dz7d7wsw/A2-FC83-F9-EA2-B5-AA3379-DCC3-C82-DFF883.jpg" />
+        <text class="t3">工程跑腿</text>
+        <text class="t4">{{order.create_time}}左右送达</text>
+        <text class="t5" bindtap="showPopup">校准时间</text>
+        <van-icon class="arrow" bindtap="showPopup" name="arrow" />
+        <van-popup show="{{ show }}" position="bottom" custom-style="height: 40%" bind:close="onClose">
+          <van-datetime-picker min-date="11.5" type="time" value="{{ currentDate }}" min-hour="{{ minHour }}" max-hour="{{ maxHour }}" bind:confirm="onInput" bind:cancel="onClose" />
+        </van-popup>
+        <image class="nosati" src="../../icons/_nosati.png" wx:if="{{!nosati}}" mode="nosati" bindtap="nosati" />
+        <image class="nosati" src="../../icons/nosati.png" wx:else mode="" />
+        <image class="sati" src="../../icons/_sati.png" wx:if="{{!sati}}" mode="" bindtap="sati" />
+        <image class="sati" src="../../icons/sati.png" wx:else mode="" />
+        <view class="ps_reason" wx:if="{{nosati}}">
+          <text class="t6">"请选择原因，我们会督促骑手"</text>
+          <van-tag color="{{!nosatitag[0]?color1:color2}}" text-color="{{!nosatitag[0]?colortext1:colortext2}}" class="tag" bindtap="choiceTag" data-index="0">提前送达</van-tag>
+          <van-tag color="{{!nosatitag[1]?color1:color2}}" text-color="{{!nosatitag[1]?colortext1:colortext2}}" class="tag" bindtap="choiceTag" data-index="1">送达超时</van-tag>
+          <van-tag color="{{!nosatitag[2]?color1:color2}}" text-color="{{!nosatitag[2]?colortext1:colortext2}}" class="tag" bindtap="choiceTag" data-index="2">送错餐品</van-tag>
+          <van-tag color="{{!nosatitag[3]?color1:color2}}" text-color="{{!nosatitag[3]?colortext1:colortext2}}" class="tag" bindtap="choiceTag" data-index="3">送达不通知</van-tag>
+          <van-tag color="{{!nosatitag[4]?color1:color2}}" text-color="{{!nosatitag[4]?colortext1:colortext2}}" class="tag" bindtap="choiceTag" data-index="4">不送上门</van-tag>
+          <van-tag color="{{!nosatitag[5]?color1:color2}}" text-color="{{!nosatitag[5]?colortext1:colortext2}}" class="tag" bindtap="choiceTag" data-index="5">仪表不整</van-tag>
+          <van-tag color="{{!nosatitag[6]?color1:color2}}" text-color="{{!nosatitag[6]?colortext1:colortext2}}" class="tag" bindtap="choiceTag" data-index="6">少餐/洒餐</van-tag>
+          <van-tag color="{{!nosatitag[7]?color1:color2}}" text-color="{{!nosatitag[7]?colortext1:colortext2}}" class="tag" bindtap="choiceTag" data-index="7">态度不好</van-tag>
+          <van-tag color="{{!nosatitag[8]?color1:color2}}" text-color="{{!nosatitag[8]?colortext1:colortext2}}" class="tag" bindtap="choiceTag" data-index="8">其他</van-tag>
+          <view class="feedback_view" wx:if="{{nosati}}">
+            <textarea class="feedback" placeholder="您的反馈会督促我们做的更好" maxlength="500"></textarea>
+          </view>
+        </view>
+
+        <view class="ps_reason" wx:if="{{sati}}">
+          <van-tag color="{{!satitag[0]?color1:color2}}" text-color="{{!satitag[0]?colortext1:colortext2}}" class="tag2" bindtap="choiceTag" data-index="0">热情礼貌</van-tag>
+          <van-tag color="{{!satitag[1]?color1:color2}}" text-color="{{!satitag[1]?colortext1:colortext2}}" class="tag2" bindtap="choiceTag" data-index="1">货品完好</van-tag>
+          <van-tag color="{{!satitag[2]?color1:color2}}" text-color="{{!satitag[2]?colortext1:colortext2}}" class="tag2" bindtap="choiceTag" data-index="2">仪表整洁</van-tag>
+          <van-tag color="{{!satitag[3]?color1:color2}}" text-color="{{!satitag[3]?colortext1:colortext2}}" class="tag2" bindtap="choiceTag" data-index="3">风雨无阻</van-tag>
+          <van-tag color="{{!satitag[4]?color1:color2}}" text-color="{{!satitag[4]?colortext1:colortext2}}" class="tag2" bindtap="choiceTag" data-index="4">快速准时</van-tag>
+          <van-tag color="{{!satitag[5]?color1:color2}}" text-color="{{!satitag[5]?colortext1:colortext2}}" class="tag2" bindtap="choiceTag" data-index="5">
+            <van-icon wx:if="{{!satitag[5]}}" name="description" />
+            <van-icon wx:else="" name="cross" />写评价
+          </van-tag>
+          <view class="feedback_view" wx:if="{{sati&&satitag[5]==1}}">
+            <textarea class="feedback" placeholder="告诉骑手，激励我们做的更好" maxlength="500"></textarea>
+          </view>
+        </view>
+
+        <view class="food_view" style="height: {{view2Height}}px;top: {{view2top}}px;">
+          <text class="t1">您对商家/菜品满意吗？</text>
+          <van-checkbox class="t2" checked-color="rgb(255,202,59)" icon-size="16px" value="{{ checked }}" label-disabled="true" bindtap="onChange">匿名提交</van-checkbox>
+          <view class="line2"></view>
+          <van-image class="shop_img" radius='10px' lazy-load src="{{order.shop[0].img}}" />
+          <text class="t7">{{order.shop[0].name}}</text>
+          <text class="t8">总体</text>
+          <van-rate class="star" value="{{ star }}" size="{{ 25 }}" color="#ffd21e" void-icon="star" void-color="#eee" bind:change="score_star" />
+          <text class="t9" wx:if="{{star==1}}">非常差</text>
+          <text class="t9" wx:if="{{star==2}}">差</text>
+          <text class="t9" wx:if="{{star==3}}">一般</text>
+          <text class="t9" wx:if="{{star==4}}">满意</text>
+          <text class="t9" wx:if="{{star==5}}">非常满意</text>
+          <view class="food_reason" wx:if="{{!extend}}" style="height:{{food_reason_height}}px">
+            <text class="t10">口味</text>
+            <van-rate class="star2" value="{{ star2 }}" size="{{ 20 }}" color="#ffd21e" void-icon="star" gutter="9px" void-color="#eee" bind:change="score_star2" />
+            <text class="t11" wx:if="{{star2==1}}">非常差</text>
+            <text class="t11" wx:if="{{star2==2}}">差</text>
+            <text class="t11" wx:if="{{star2==3}}">一般</text>
+            <text class="t11" wx:if="{{star2==4}}">满意</text>
+            <text class="t11" wx:if="{{star2==5}}">非常满意</text>
+            <text class="t12">包装</text>
+            <van-rate class="star3" value="{{ star3 }}" size="{{ 20 }}" color="#ffd21e" void-icon="star" gutter="9px" void-color="#eee" bind:change="score_star3" />
+            <text class="t13" wx:if="{{star3==1}}">非常差</text>
+            <text class="t13" wx:if="{{star3==2}}">差</text>
+            <text class="t13" wx:if="{{star3==3}}">一般</text>
+            <text class="t13" wx:if="{{star3==4}}">满意</text>
+            <text class="t13" wx:if="{{star3==5}}">非常满意</text>
+            <view class="food_commit">
+              <textarea class="feedback" placeholder="{{placeholder}}" value="{{commit_content}}" maxlength="500" bindinput="save_commit">
+              </textarea>
+            </view>
+            <view class="uploading_view" style="height:{{uploading_view_height}}px;">
+              <van-uploader accept="image" max-count="3" file-list="{{ fileList }}"  bind:after-read="afterRead" bind:delete="delete">
+                <van-image image-class="icon" list-type="picture" width="70px" height="70px" src="https://i.postimg.cc/13PshYZB/2023-11-07-183954.png"></van-image>
+              </van-uploader>
+            </view>
+            <view class="t4_view" style="height:{{uploading_view_height}}px;">
+              <text class="t14_1" wx:if="{{content==''}}">文字评论得<text style="color: rgb(240,145,50);">10</text>人品</text>
+              <text class="t14_1" wx:else="">已获得<text style="color: rgb(240,145,50);">10</text>人品</text>
+              <text class="t14_2" wx:if="{{fileList.length<1}}">传图得<text style="color: rgb(240,145,50);">20</text>人品</text>
+              <text class="t14_2" wx:else>已获得<text style="color: rgb(240,145,50);">20</text>人品</text>
+              <text class="t14_3" wx:if="{{!Ifclu}}">评价菜品可再得<text style="color: rgb(240,145,50);">10</text>人品</text>
+              <text class="t14_3" wx:else>已获得<text style="color: rgb(240,145,50);">10</text>人品</text>
+            </view>
+
+            <view class="food_rec" bindtap="add_commit">
+            <image class="food_rec_img" src="{{order.orders[0].food_image}}" mode="widthFix"/>
+            <text class="food_rec_name" >{{order.orders[0].food_name}}</text>
+            </view>
+            <view class="food_rec_gus">
+            <text class="food_rec_gus1" wx:if="{{!gus1}}" bindtap="food_rec_gus1">👎🏻踩</text>
+            <text class="food_rec_gus1" wx:else bindtap="food_rec_gus1">👎🏾踩</text>
+            <text class="food_rec_gus2" wx:if="{{!gus2}}" bindtap="food_rec_gus2">👍🏻赞</text>
+            <text class="food_rec_gus2" wx:else bindtap="food_rec_gus2">👍赞</text>
+            </view>
+          </view>
+        </view>
+      </van-col>
+    </view>
+  </van-col>
+</van-row>

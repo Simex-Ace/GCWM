@@ -1,0 +1,8 @@
+<view class="main" style="background-image: url({{img}});">
+  <text class="return" bindtap="return">完成</text>
+  <text class="title" >下单成功，商家已接单</text>
+  <view class="bg">
+    <image src="{{shop[0].img}}" mode="" class="img"/>
+  </view>
+</view>
+

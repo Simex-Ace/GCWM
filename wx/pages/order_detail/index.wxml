@@ -1,0 +1,29 @@
+<!-- <navigator url="/pages/goods_detail/index?goods_id={{item.goods_id}}" > -->
+<view class="main">
+  <view class="address">
+    <text class="t1">配送地址:{{address[0].address}}</text>
+    <text class="t2">下单时间:{{order.create_time}}</text>
+    <text class="t3">支付方式:在线支付</text>
+    <text class="t4">套餐数量:商家按餐量提供</text>
+  </view>
+  <view class="order-list" wx:for="{{orderDetail}}">
+    <view class="order-item">
+
+      <view class="order-info">
+        <view class="order-no">订单号：{{item.order_no}}</view>
+        <view class="goods-name">商品名：{{item.food_name}}</view>
+        <view class="goods-chara" wx:if="{{item.choiceSizes}}">口味：{{item.choiceSizes}}</view>
+        <view class="goods-num">数量：{{item.food_num}}</view>
+        <view class="goods-price">单价：¥{{item.food_price}}</view>
+      </view>
+      <view class="goods-image">
+        <image src="{{item.food_image}}" class="goods-image" />
+      </view>
+    </view>
+    <view class="total-pay-wrapper">
+      <view class="total-pay-text">已支付</view>
+      <view class="total-pay-amount">¥{{item.totalPrice}}</view>
+    </view>
+  </view>
+</view>
+<!-- </navigator> -->

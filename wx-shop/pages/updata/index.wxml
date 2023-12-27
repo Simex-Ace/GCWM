@@ -1,0 +1,16 @@
+<view class="main">
+  <van-notify id="van-notify" />
+  <button class="save" bindtap="save">保存</button>
+  <van-uploader accept="image" class="img" max-count="1" bind:after-read="afterRead" preview-image="false" deletable="false">
+    <image image-class="icon" class="img" src="{{shop.img}}"></image>
+  </van-uploader>
+  <van-cell-group>
+    <van-field label="店铺名" left-icon="contact-o" model:value="{{ shop.name }}" placeholder="请输入店铺名" bind:change="onChangeName" />
+    <van-field label="店铺描述" left-icon="comment-o" model:value="{{ shop.chara }}" placeholder="请输入店铺描述" bind:change="onChangeChara" />
+    <van-field label="配送时间" left-icon="logistics" model:value="{{ shop.time }}" placeholder="请输入配送时间" bind:change="onChangeTime" />
+    <van-field label="配送距离" left-icon="wap-home-o" model:value="{{ shop.distance }}" placeholder="请输入配送距离" bind:change="onChangeDis" />
+    <van-field label="起送费" left-icon="after-sale" model:value="{{ shop.qs_fee }}" placeholder="请输入起送费" bind:change="onChangeQs" />
+    <van-field label="配送费" left-icon="cash-o" model:value="{{ shop.ps_fee }}" placeholder="请输入配送费" bind:change="onChangePs" />
+    <van-field label="联系电话" left-icon="phone-o" model:value="{{ shop.tel }}" placeholder="请输入联系电话" bind:change="onChangeTel" />
+  </van-cell-group> 
+</view>

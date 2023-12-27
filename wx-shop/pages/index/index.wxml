@@ -1,0 +1,41 @@
+<view class="main" wx:if="{{user}}">
+  <van-notify id="van-notify"/>
+  <navigator url="/pages/category/index?shop_id={{user.shop_id}}" wx:if="{{ !show }}"><button>预览</button></navigator>
+  <view class="foods" wx:if="{{ !show }}">
+    <view wx:for="{{foods}}" class="category" wx:for-index="index" wx:for-item="item">
+      <button class="addfood" bindtap="addfood" data-index="{{index}}">添加美食</button>
+      <van-cell-group>
+        <van-field label="分类" left-icon="cluster-o" model:value="{{ item.name }}" placeholder="请输入分类名" bind:change="onChangeCategory" bindtap="onshowFood" data-index="{{index}}" bind:longpress="del_category" />
+        <view wx:for="{{item.foods}}" wx:if="{{item.showFood}}" class="food" wx:for-index="index2" wx:for-item="item2">
+          <button class="addStyle" bindtap="addStyle" data-index="{{index}}" data-index2="{{index2}}">添加口味</button>
+          <van-field label="美食" left-icon="new-arrival-o" model:value="{{ item2.name }}" placeholder="请输入美食名" bind:change="onChangeFood" data-index="{{index}}" data-index2="{{index2}}" bind:longpress="del_food" />
+          <van-uploader accept="image" max-count="1" bind:after-read="afterRead" preview-image="false" deletable="false" data-index="{{index}}" data-index2="{{index2}}">
+            <image image-class="icon" class="img" src="{{item2.img}}"></image>
+          </van-uploader>
+          <scroll-view scroll-y="{{true}}" class="foods_content">
+            <view class="food_content">
+              <van-field label="商品介绍" left-icon="new-arrival-o" model:value="{{ item2.chara }}" placeholder="请输入商品介绍" bind:change="onChangeChara" data-index="{{index}}" data-index2="{{index2}}" />
+            </view>
+            <view class="food_content">
+              <van-field label="价格" left-icon="new-arrival-o" model:value="{{ item2.price }}" placeholder="请输入价格" bind:change="onChangePrice" data-index="{{index}}" data-index2="{{index2}}" />
+            </view>
+            <view class="style_content" wx:if="{{item2.style}}" wx:for="{{item2.style}}" wx:for-index="index3" wx:for-item="item3">
+              <button class="addSize" bindtap="addSize" data-index="{{index}}" data-index2="{{index2}}" data-index3="{{index3}}">添加规格</button>
+              <van-field label="口味" left-icon="new-arrival-o" model:value="{{ item3.name }}" placeholder="请输入口味" bind:change="onChangeStyle" bindtap="onshowSize" data-index="{{index}}" data-index2="{{index2}}" data-index3="{{index3}}" bind:longpress="del_style" />
+              <view class="size_content" wx:for="{{item3.sizes}}" wx:if="{{item3.showSize}}" class="size" wx:for-index="index4" wx:for-item="item4">
+                <van-field label="规格" left-icon="new-arrival-o" model:value="{{ item4.name }}" placeholder="请输入规格" bind:change="onChangeSize" data-index="{{index}}" data-index2="{{index2}}" data-index3="{{index3}}" data-index4="{{index4}}" bind:longpress="del_size" />
+              </view>
+            </view>
+          </scroll-view>
+        </view>
+      </van-cell-group>
+    </view>
+    <button class="addcategory" bindtap="addcategory">添加分类</button>
+    <button class="save" bindtap="save" disabled="{{saveButtonDisabled}}">保存信息</button>
+  </view>
+  <van-overlay show="{{ show }}">
+    <view class="wrapper">
+      <view class="block" bindtap="onClickHide">前往设置店铺</view>
+    </view>
+  </van-overlay>
+</view>

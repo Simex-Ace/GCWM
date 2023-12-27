@@ -1,0 +1,105 @@
+.swiperList {
+  width: 100%;
+  /* border-style: solid; */
+}
+
+.swiperList_img {
+  width: 100%;
+  height: 150px;
+  /* border-style: solid; */
+}
+
+.shopList {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background-color: rgb(247, 241, 241);
+  /* border-style: solid; */
+}
+.list {
+  position: relative;
+  margin-top: 2%;
+  width: 96%;
+  left: 2%;
+  right: 2%;
+  height: 100px;
+  border-radius: 10px;
+  /* border-style: solid; */
+  background-color: white;
+}
+
+.shop_img {
+  position: absolute;
+  margin-top: 2%;
+  margin-left: 2%;
+  border-radius: 10px;
+  width: 80px;
+  height: 80px;
+  /* border-style: solid; */
+}
+.shop_name {
+  position:absolute;
+  margin-top: 2%;
+  width: 60%;
+  font-size: 15px;
+  font-weight: 200;
+  margin-left: 25%;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  /* border-style: solid; */
+}
+.shop_score {
+  position: absolute;
+  font-size: 14px;
+  font-weight: 500;
+  color: orange;
+  margin-top: 8%;
+  margin-left: 25%;
+  /* border-style: solid; */
+}
+.shop_sale {
+  position: absolute;
+  font-size: 11px;
+  font-family: '幼圆';
+  margin-top: 9.5%;
+  margin-left: 36%;
+  color: rgb(146, 146, 146);
+  /* border-style: solid; */
+}
+.shop_qs {
+  position: absolute;
+  font-size: 11px;
+  font-family: '幼圆';
+  margin-top: 15%;
+  margin-left: 25%;
+  color: rgb(146, 146, 146);
+  /* border-style: solid; */
+}
+.shop_ps {
+  position: absolute;
+  font-size: 11px;
+  font-family: '幼圆';
+  margin-top: 15%;
+  margin-left: 40%;
+  color: rgb(146, 146, 146);
+  /* border-style: solid; */
+}
+.shop_time {
+  position: absolute;
+  font-size: 11px;
+  font-family: '幼圆';
+  margin-top: 15%;
+  margin-left: 75%;
+  color: rgb(146, 146, 146);
+  /* border-style: solid; */
+}
+.shop_distance {
+  position: absolute;
+  font-size: 11px;
+  font-family: '幼圆';
+  margin-top: 15%;
+  right: 2%;
+  color: rgb(146, 146, 146);
+  /* border-style: solid; */
+}

@@ -1,0 +1,43 @@
+<view class="user_info_wrap">
+  <view wx:if="{{user.name}}" class="user_img_wrap">
+    <image class="user_bg" mode="heightFix" src="https://img1.baidu.com/it/u=419158160,16329368&fm=253&fmt=auto&app=138&f=JPEG?w=889&h=500"></image>
+    <button class="logout" bindtap="logout">退出</button>
+    <button class="updata" bindtap="updata">设置</button>
+    <view class="user_info">
+      <image class="user_icon" mode="aspectFill" src="{{user.img}}"></image>
+      <view class="user_name">{{user.name}}</view>
+    </view>
+  </view>
+  <view wx:else class="user_btn">
+    <navigator url="/pages/login/index">登录</navigator>
+  </view>
+</view>
+<view class="user_content">
+  <view class="user_main">
+
+    <view class="history_wrap">
+      <navigator url="/pages/collect/index">
+        <view class="his_num">{{collectNums}}</view>
+        <view class="his_name">收藏的店铺</view>
+      </navigator>
+      <navigator bindtap="toRecord" url="/pages/record/index">
+        <view class="his_num">{{recordNums}}</view>
+        <view class="his_name">我的足迹</view>
+      </navigator>
+    </view>
+    <view class="address_wrap" bindtap="toAddress">
+      收货地址管理
+    </view>
+    <view class="app_info_wrap">
+      <view class="app_info_item app_inf_contact">
+        <text>联系客服</text>
+        <text>400-618-4000</text>
+      </view>
+      <navigator class="app_info_item" url="/pages/feedback/index">意见反馈</navigator>
+      <view class="app_info_item">关于我们</view>
+    </view>
+    <view class="recommend_wrap" bindtap="onClick">把应用推荐给其他人</view>
+  </view>
+  <van-share-sheet show="{{ showShare }}" title="立即分享给好友" options="{{ options }}" bind:select="onSelect" bind:close="onClose" />
+  <van-toast id="van-toast" />
+</view>

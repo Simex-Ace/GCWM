@@ -1,0 +1,15 @@
+<view class="history-list">
+  <view bindtap="del_all" class="del_all">清空记录</view>
+  <navigator url="/pages/category/index?shop_id={{item.shop_id}}" wx:for="{{record}}" wx:key="index" bindlongpress="delRecord" data-id="{{item.id}}">
+    <view class="time">{{item.scan_time}}</view>
+    <view class="history-item">
+      <view class="goods-image">
+        <image src="{{item.shop[0].img}}" mode="aspectFit" />
+      </view>
+      <view class="goods-detail">
+        <view class="goods-name">{{item.shop[0].name}}</view>
+        <view class="goods-price">{{item.shop[0].chara}}</view>
+      </view>
+    </view>
+  </navigator>
+</view>

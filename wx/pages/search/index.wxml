@@ -1,0 +1,36 @@
+<view class="search_row">
+  <input placeholder="请输入您要搜索的店铺" value="{{inputValue}}" bindinput="handleInput"></input>
+  <button bindtap="handleCancel" hidden="{{!isFocus}}" class="search_btn">取消</button>
+</view>
+<view class="search_content" wx:for="{{shops}}" wx:key="shop_id">
+  <navigator url="/pages/category/index?shop_id={{item.shop_id}}" class="search_item">
+    <text class="name">{{item.name}}</text>
+    <image src="{{item.img}}" mode="aspectFit" class="img" />
+    <text class="score">{{item.score}}</text>
+    <van-icon name="star" class="star" color="orange" />
+    <text class="time"> 配送约{{item.time}}分钟 </text>
+    <text class="sale"> 月售{{item.sales}}+</text>
+    <text class="qs"> 起送￥{{item.qs_fee}}</text>
+    <text class="ps"> 配送约￥{{item.ps_fee}}</text>
+    <text class="distance"> {{item.distance}} km</text>
+    <text class="chara">{{item.chara}}</text>
+    <view class="foods">
+      <image class="food_img1" src="{{item.shop[0].img}}" />
+      <text class="food_name1">{{item.shop[0].name}}</text>
+      <text class="food_price1">￥{{item.shop[0].price}}</text>
+
+      <image class="food_img2" src="{{item.shop[1].img}}" />
+      <text class="food_name2">{{item.shop[1].name}}</text>
+      <text class="food_price2" wx:if="{{item.shop[1].price}}">￥{{item.shop[1].price}}</text>
+
+      <image class="food_img3" src="{{item.shop[2].img}}" />
+      <text class="food_name3">{{item.shop[2].name}}</text>
+      <text class="food_price3" wx:if="{{item.shop[2].price}}">￥{{item.shop[2].price}}</text>
+
+      <image class="food_img4" src="{{item.shop[3].img}}" />
+      <text class="food_name4">{{item.shop[3].name}}</text>
+      <text class="food_price4" wx:if="{{item.shop[3].price}}">￥{{item.shop[3].price}}</text>
+
+    </view>
+  </navigator>
+</view>

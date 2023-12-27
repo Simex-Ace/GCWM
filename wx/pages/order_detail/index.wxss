@@ -1,0 +1,200 @@
+.main{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+.order-list {
+  position: relative;
+  background-color: #f7f7f7;
+  margin: 10px;
+  padding: 10px;
+  top:35%;
+}
+.address{
+  position: absolute;
+  top: 2%;
+  width: 90%;
+  height: 32%;
+  right: 5%;
+  border-radius: 15px;
+  /* border-style: solid; */
+  background-image: url('https://img0.baidu.com/it/u=2670207170,957631087&fm=253&fmt=auto&app=138&f=JPEG?w=889&h=500');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.t1{
+  margin-left: 2%;
+  letter-spacing: 1px;
+  color: white;
+  position:absolute;
+  top: 5%;
+  font-size: 13px;
+  height: 30%;
+  font-family: '幼圆';
+  /* border-style: solid; */
+}
+.t2{
+  margin-left: 2%;
+  letter-spacing: 1px;
+  color: white;
+  position:absolute;
+  top: 40%;
+  font-size: 13px;
+  height: 20%;
+  font-family: '幼圆';
+  /* border-style: solid; */
+}
+.t3{
+  margin-left: 2%;
+  letter-spacing: 1px;
+  color: white;
+  position:absolute;
+  font-size: 13px;
+  top: 60%;
+  height: 20%;
+  font-family: '幼圆';
+  /* border-style: solid; */
+}
+.t4{
+  margin-left: 2%;
+  letter-spacing: 1px;
+  color: white;
+  position:absolute;
+  font-size: 13px;
+  top: 80%;
+  font-family: '幼圆';
+  height: 20%;
+  /* border-style: solid; */
+}
+
+.order-item {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #ffffff;
+  border-radius: 5px;
+  box-shadow: 0 2px 6px rgba(0,0,0,.1);
+  margin-bottom: 10px;
+  padding: 10px;
+}
+
+.order-info {
+  width: 50%;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.goods-chara {
+  color:orange;
+  font-size: 12px;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.goods-image {
+  margin-top: 50px;
+  border-radius: 10px;
+}
+
+.goods-image image {
+  width: 80%;
+  display: block;
+  margin: 0 auto;
+}
+.order-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px;
+  border-bottom: 1px solid #eee;
+}
+
+.order-info {
+  flex: 1;
+}
+
+.order-no {
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 8px;
+}
+
+.goods-name {
+  font-size: 16px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 5px;
+}
+
+.goods-num{
+  font-size: 12px;
+  color: #1ef0c2;
+  margin-bottom: 5px;
+}
+.goods-price {
+  font-size: 14px;
+  margin-bottom: 5px;
+  font-weight: bold;
+  color: red;
+  margin-bottom: 10px;
+}
+
+.goods-image {
+  width: 80px;
+  height: 80px;
+  margin-left: 12px;
+}
+
+.total-pay-wrapper {
+  position: fixed;
+  bottom: 2%;
+  right: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 6px;
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: 12px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  animation: slideInUp .3s ease-in-out;
+}
+
+.total-pay-text {
+  font-size: 14px;
+  color: #333;
+  font-weight: bold;
+  margin-right: 4px;
+  padding: 2px 8px;
+  background-color: #FFCC00;
+  border-radius: 10px;
+}
+
+.total-pay-amount {
+  font-size: 20px;
+  color: #333;
+  font-weight: bold;
+}
+.goods-image {
+  position: relative;
+  width: 80px;
+  height: 80px;
+}
+
+.goods-image image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.order-info {
+  flex: 1;
+  margin-left: 12px;
+}
+

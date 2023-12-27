@@ -1,0 +1,119 @@
+<view class="cates">
+  <view class="shop">
+    <text class="shop_name">{{shop[0].name}}</text>
+    <image class="shop_img" src="{{shop[0].img}}" mode="aspectFit" />
+    <image class="star" src="../../icons/score.png" mode="aspectFit" />
+    <text class="shop_score"> {{shop[0].score}} </text>
+    <text class="shop_time"> 配送约{{shop[0].time}}分钟 </text>
+    <text class="shop_time"> 月售{{shop[0].sales}}+</text>
+    <text class="shop_chara">{{shop[0].chara}}</text>
+  </view>
+  <text class="booking {{booking?'tab_active':''}}" bindtap="booking">点餐</text>
+  <text class="score {{score?'tab_active':''}}" bindtap="score">评价</text>
+  <text class="shop_detail {{shop_detail?'tab_active':''}}" bindtap="shop_detail">商家</text>
+  <view class="cates_container" wx:if="{{booking}}">
+    <!--左侧菜单-->
+    <scroll-view scroll-y class="left_menu">
+      <view class="menu_item {{index===currentIndex?'active':''}}" wx:for="{{leftMenuList}}" wx:key="*this" bindtap="handleItemTap" data-index="{{index}}">
+        {{item.name}}
+      </view>
+    </scroll-view>
+    <movable-area class="movable-area" wx:if="{{choice}}">
+      <movable-view class="movable-view" direction="all">
+        <scroll-view scroll-y style="height: 100%;">
+          <text class="foodStyle_name">{{foodStyle.name}}</text>
+          <image src="../../icons/cancel.png" class="cancel" bindtap="cancel"></image>
+          <view class="style_box" wx:for="{{Style}}" wx:for-index="styleIndex">
+            <text class="foodStyle_name1">{{item.name}}</text>
+            <view wx:for="{{item.sizes}}" wx:for-item="sizeItem" wx:for-index="sizeIndex" class="style_box2 {{Style[styleIndex].sizes[sizeIndex].choice?'size_item':''}}" bindtap="chocieSize" data-size="{{sizeIndex}}" data-index="{{styleIndex}}">
+              <text class="foodStyle_name2">{{sizeItem.name}}</text>
+            </view>
+          </view>
+          <view class="submit">
+            <text class="size_total">总计</text><text class="Y">￥:</text><text class="price">{{view_total}}</text>
+            <image src="../../icons/jianshao.png" mode="aspectFit" class="des_style" bindtap="desnum_style" wx:if="{{foodStyle.num!=0}}" />
+            <text class="num_style" wx:if="{{foodStyle.num!=0}}">{{foodStyle.num}}</text>
+            <image src="../../icons/tianjia.png" mode="aspectFit" class="add_style" bindtap="addnum_style" wx:if="{{foodStyle.num>0}}" />
+            <view class="choice_style_view" wx:else bindtap="addnum_style">+加入购物车</view>
+          </view>
+        </scroll-view>
+      </movable-view>
+    </movable-area>
+    <!--右侧商品-->
+    <scroll-view scroll-top="{{scrolltop}}" scroll-y class="right_content">
+      <view class="goods_group" wx:for="{{rightContent}}" wx:for-index="index1" wx:for-item="item1">
+        <view class="goods_title">
+          <image src="{{item1.img}}" mode="heightFix" class="img" />
+          <text class="title">{{item1.name}}
+            <text class="sale">月售:{{item1.sale}}
+              <text class="Y">￥:</text>
+              <text class="price">{{item1.price}}</text>
+            </text>
+          </text>
+          <image src="../../icons/jianshao.png" mode="aspectFit" class="des" bindtap="desnum" data-index="{{index1}}" wx:if="{{item1.num!=0&&item1.style==null}}" />
+          <text class="num" wx:if="{{item1.num!=0&&item1.style==null}}">{{item1.num}}</text>
+          <image src="../../icons/tianjia.png" mode="aspectFit" class="add" bindtap="addnum" data-index="{{index1}}" wx:if="{{item1.style==null}}" />
+          <view class="choice_style" wx:else bindtap="choiceStyle" data-index="{{item1}}">选规格</view>
+        </view>
+        <view class="goods_list">
+        </view>
+      </view>
+    </scroll-view>
+    <view class="total">
+      <text class="total_fee">￥:{{total}}</text>
+      <text class="total_ps">预估加配送费￥{{shop[0].ps_fee}}</text>
+      <text class="total_sel_yes" wx:if="{{total>=shop[0].qs_fee}}">去结算</text>
+      <text class="total_sel_no" wx:else>差￥{{total_on}}起送</text>
+    </view>
+  </view>
+  <view class="score_shop" wx:if="{{score}}">
+    <text class="score_num">{{shop[0].score}}</text>
+    <text class="score_text">商家评分</text>
+    <image class="star" src="../../icons/star_on.png" mode="aspectFit" wx:if="{{shop[0].score>=1}}" />
+    <image class="star" src="../../icons/star_off.png" mode="aspectFit" wx:else />
+    <image class="star" src="../../icons/star_on.png" mode="aspectFit" wx:if="{{shop[0].score>=2}}" />
+    <image class="star" src="../../icons/star_off.png" mode="aspectFit" wx:else />
+    <image class="star" src="../../icons/star_on.png" mode="aspectFit" wx:if="{{shop[0].score>=3}}" />
+    <image class="star" src="../../icons/star_off.png" mode="aspectFit" wx:else />
+    <image class="star" src="../../icons/star_on.png" mode="aspectFit" wx:if="{{shop[0].score>=4}}" />
+    <image class="star" src="../../icons/star_off.png" mode="aspectFit" wx:else />
+    <image class="star" src="../../icons/star_on.png" mode="aspectFit" wx:if="{{shop[0].score==5}}" />
+    <image class="star" src="../../icons/star_off.png" mode="aspectFit" wx:else />
+    <text class="score_snum">{{shop[0].score-0.2}}</text>
+    <text class="score_text">口味</text>
+    <text class="score_snum">{{shop[0].score-0.1}}</text>
+    <text class="score_text">包装</text>
+    <text class="score_psnum">{{shop[0].score*20-1}}%</text>
+    <text class="score_text">配送满意度</text>
+    <view class="score_content" wx:for="{{Scores}}">
+      <view class="cus_content">
+        <image class="img_cus" src="{{item.user.img}}" mode="aspectFit" />
+        <text class="name_cus">{{item.user.name}}</text>
+        <text class="time_cus">{{item.time}}</text>
+        <image class="star_cus" src="../../icons/star_on.png" mode="aspectFit" wx:if="{{item.score>=1}}" />
+        <image class="star_cus" src="../../icons/star_off.png" mode="aspectFit" wx:else />
+        <image class="star_cus" src="../../icons/star_on.png" mode="aspectFit" wx:if="{{item.score>=2}}" />
+        <image class="star_cus" src="../../icons/star_off.png" mode="aspectFit" wx:else />
+        <image class="star_cus" src="../../icons/star_on.png" mode="aspectFit" wx:if="{{item.score>=3}}" />
+        <image class="star_cus" src="../../icons/star_off.png" mode="aspectFit" wx:else />
+        <image class="star_cus" src="../../icons/star_on.png" mode="aspectFit" wx:if="{{item.score>=4}}" />
+        <image class="star_cus" src="../../icons/star_off.png" mode="aspectFit" wx:else />
+        <image class="star_cus" src="../../icons/star_on.png" mode="aspectFit" wx:if="{{item.score==5}}" />
+        <image class="star_cus" src="../../icons/star_off.png" mode="aspectFit" wx:else />
+        <text class="text_cus" wx:if="{{item.score==5}}">非常满意</text>
+        <text class="text_cus" wx:elif="{{item.score>=4}}">满意</text>
+        <text class="text_cus" wx:elif="{{item.score>=3}}">一般</text>
+        <text class="text_cus" wx:elif="{{item.score>=2}}">差劲</text>
+        <text class="text_cus" wx:elif="{{item.score>=1}}">非常差劲</text>
+      </view>
+      <view class="text_content" wx:if="{{item.message}}">
+        <text class="content_cus">{{item.message}}</text>
+      </view>
+      <view class="img_content" wx:if="{{item.img1}}">
+        <image class="img1_content" src="{{item.img1}}" mode="" />
+        <image class="img2_content" src="{{item.img2}}" mode="" />
+        <image class="img3_content" src="{{item.img3}}" mode="" />
+      </view>
+    </view>
+  </view>
+</view>

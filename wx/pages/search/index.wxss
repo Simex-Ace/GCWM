@@ -1,0 +1,308 @@
+page {
+  background-color: #dedede;
+  padding: 20rpx;
+}
+
+.search_row {
+  height: 35px;
+  display: flex;
+}
+
+.search_row input {
+  background-color: #fff;
+  flex: 1;
+  height: 100%;
+  padding-left: 2%;
+  font-size: 13px;
+  border-radius: 5px;
+}
+
+.search_row .search_btn {
+  width: 40px;
+  height: 100%;
+  padding: 0px;
+  margin: 0 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 12px;
+}
+
+.search_content {
+  margin-top: 20px;
+}
+
+.search_content .search_item {
+  position: relative;
+  background-color: #fff;
+  font-size: 13px;
+  height: 180px;
+  padding: 5px 5px;
+  /* border-bottom: 1px solid #ccc; */
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  border-radius: 10px;
+}
+
+.name {
+  position: relative;
+  font-size: 12px;
+  font-family: '幼圆';
+  left: 15%;
+  width: 50px;
+  height: 50px;
+}
+
+.img {
+  position: absolute;
+  left: 1%;
+  top: 1%;
+  width: 50px;
+  height: 50px;
+  border-radius: 35px;
+}
+
+.score {
+  position: absolute;
+  font-size: 11px;
+  font-weight: 800;
+  color: orange;
+  top: 26%;
+  left: 16%;
+  width: 50px;
+  height: 50px;
+}
+
+.star {
+  position: absolute;
+  font-size: 14px;
+  font-family: '幼圆';
+  top: 4%;
+  left: 11%;
+  width: 50px;
+  height: 50px;
+}
+
+.time {
+  position: absolute;
+  font-size: 10px;
+  font-family: '幼圆';
+  top: 16%;
+  left: 22%;
+  color: rgb(146, 146, 146);
+  width: 50px;
+  height: 50px;
+}
+
+.sale {
+  position: absolute;
+  font-size: 10px;
+  font-family: '幼圆';
+  top: 16%;
+  left: 42%;
+  width: 50px;
+  color: rgb(146, 146, 146);
+  height: 50px;
+}
+
+.ps {
+  position: absolute;
+  font-size: 10px;
+  font-family: '幼圆';
+  top: 16%;
+  left: 57%;
+  color: rgb(146, 146, 146);
+  width: 50px;
+  height: 50px;
+}
+
+.qs {
+  position: absolute;
+  font-size: 10px;
+  font-family: '幼圆';
+  top: 16%;
+  left: 72%;
+  color: rgb(146, 146, 146);
+  width: 50px;
+  height: 50px;
+}
+
+.distance {
+  position: absolute;
+  font-size: 10px;
+  font-family: '幼圆';
+  top: 16%;
+  color: rgb(146, 146, 146);
+  right: -2%;
+  width: 50px;
+  height: 50px;
+}
+
+.chara {
+  position: absolute;
+  font-size: 11px;
+  font-family: '幼圆';
+  top: 26.5%;
+  left: 22%;
+  width: 75%;
+  height: 18px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  /* border-style: solid; */
+}
+
+.foods {
+  position: absolute;
+  left: 1%;
+  top: 37%;
+  width:98%;
+  height: 115px;
+  border-radius: 5px;
+  /* border-style: solid; */
+}
+.food_img1{
+  position: absolute;
+  width:20%;
+  margin-left: 2%;
+  height: 63%;
+  border-radius: 5px;
+  /* border-style: solid; */
+}
+.food_name1{
+  position: absolute;
+  top: 65%;
+  width:20%;
+  margin-left: 2%;
+  font-size: 10px;
+  text-align: center;
+  font-family: '幼圆';
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  border-radius: 5px;
+  /* border-style: solid; */
+}
+.food_price1{
+  position: absolute;
+  top: 80%;
+  margin-left: 2%;
+  width:20%;
+  font-size: 14px;
+  text-align: center;
+  font-family: '幼圆';
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  border-radius: 5px;
+  /* border-style: solid; */
+}
+.food_img2{
+  position: absolute;
+  width:20%;
+  margin-left: 25%;
+  height: 63%;
+  border-radius: 5px;
+  /* border-style: solid; */
+}
+.food_name2{
+  position: absolute;
+  margin-left: 25%;
+  top: 65%;
+  width:20%;
+  font-size: 10px;
+  text-align: center;
+  font-family: '幼圆';
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  border-radius: 5px;
+  /* border-style: solid; */
+}
+.food_price2{
+  position: absolute;
+  margin-left: 25%;
+  top: 80%;
+  width:20%;
+  font-size: 14px;
+  text-align: center;
+  font-family: '幼圆';
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  border-radius: 5px;
+  /* border-style: solid; */
+}
+.food_img3{
+  position: absolute;
+  width:20%;
+  margin-left: 49%;
+  height: 63%;
+  border-radius: 5px;
+  /* border-style: solid; */
+}
+.food_name3{
+  position: absolute;
+  margin-left: 49%;
+  top: 65%;
+  width:20%;
+  font-size: 10px;
+  text-align: center;
+  font-family: '幼圆';
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  border-radius: 5px;
+  /* border-style: solid; */
+}
+.food_price3{
+  position: absolute;
+  margin-left: 49%;
+  top: 80%;
+  width:20%;
+  font-size: 14px;
+  text-align: center;
+  font-family: '幼圆';
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  border-radius: 5px;
+  /* border-style: solid; */
+}
+.food_img4{
+  position: absolute;
+  width:20%;
+  margin-left: 75%;
+  height: 63%;
+  border-radius: 5px;
+  /* border-style: solid; */
+}
+.food_name4{
+  position: absolute;
+  margin-left: 75%;
+  top: 65%;
+  width:20%;
+  font-size: 10px;
+  text-align: center;
+  font-family: '幼圆';
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  border-radius: 5px;
+  /* border-style: solid; */
+}
+.food_price4{
+  position: absolute;
+  margin-left: 75%;
+  top: 80%;
+  width:20%;
+  font-size: 14px;
+  text-align: center;
+  font-family: '幼圆';
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  border-radius: 5px;
+  /* border-style: solid; */
+}

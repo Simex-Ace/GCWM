@@ -1,0 +1,139 @@
+.main{
+  top: 0%;
+  bottom: 0%;
+  right: 0%;
+  left: 0%;
+  position: absolute;
+  align-items: center;
+  text-align: center;
+  /* border-style: solid; */
+}
+.home{
+  position: fixed;
+  border-style: solid;
+  right: 2%;
+  top: 2%;
+  width: 80px;
+  height: 30px;
+  font-size: 12px;
+  line-height: 25px;
+}
+.count{
+  position:absolute;
+  top: 10%;
+  height: 30px;
+  right: 25%;
+  left: 25%;
+  width: 50%;
+  border-radius: 10px;
+  border-style: solid;
+}
+.t1{
+  position:absolute;
+  top: 10.5%;
+  height: 30px;
+  right: 25%;
+  left: 12%;
+  width:13%;
+  font-family: '幼圆';
+  /* border-style: solid; */
+}
+.pwd{
+  position:absolute;
+  top: 18%;
+  height: 30px;
+  right: 25%;
+  left: 25%;
+  width: 50%;
+  border-radius: 10px;
+  border-style: solid;
+}
+.sign_view{
+  position:absolute;
+  top: 24%;
+  height: 40px;
+  width: 100%;
+  border-radius: 10px;
+  /* border-style: solid; */
+}
+.code{
+  position:absolute;
+  top: 2%;
+  height: 30px;
+  right: 50%;
+  left: 25%;
+  width: 23%;
+  font-size: 12px;
+  border-radius: 10px;
+  border-style: solid;
+}
+.t2{
+  position:absolute;
+  top: 18.5%;
+  height: 30px;
+  right: 25%;
+  left: 12%;
+  width:13%;
+  font-family: '幼圆';
+  /* border-style: solid; */
+}
+
+.t3{
+  position:absolute;
+  top: 27.5%;
+  height: 30px;
+  right: 25%;
+  left: 7%;
+  width:18%;
+  font-family: '幼圆';
+  /* border-style: solid; */
+}
+.t4{
+  position:absolute;
+  top: 0%;
+  height: 35px;
+  right: 25%;
+  left: 52%;
+  width:25%;
+  font-family: '幼圆';
+  font-size: 25px;
+  line-height: 35px;
+  letter-spacing: 5px;
+  border-radius: 5px;
+  background-color: rgb(221, 220, 218);
+  /* border-style: solid; */
+}
+
+.button1 {
+  position:absolute;
+  top: 25%;
+  height: 30px;
+  right: 30%;
+  left: 30%;
+  width: 40%;
+  line-height: 25px;
+  font-family: '幼圆';
+  border-style: solid;
+}
+.button2 {
+  position:absolute;
+  top: 30%;
+  height: 30px;
+  right: 30%;
+  left: 30%;
+  width: 40%;
+  line-height: 25px;
+  font-family: '幼圆';
+  border-style: solid;
+}
+.button3 {
+  position:absolute;
+  top: 35%;
+  height: 30px;
+  right: 30%;
+  left: 30%;
+  width: 40%;
+  line-height: 25px;
+  font-family: '幼圆';
+  border-style: solid;
+}

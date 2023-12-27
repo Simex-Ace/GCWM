@@ -1,0 +1,17 @@
+{
+  "name": "wx",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@vant/area-data": "^1.5.1",
+    "@vant/weapp": "^1.11.1",
+    "qrcode-npm": "0.0.3",
+    "wx-qrcode": "^1.1.0"
+  }
+}

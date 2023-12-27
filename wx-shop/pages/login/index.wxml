@@ -1,0 +1,17 @@
+<view class="main">
+  <button class="home" bindtap="Tohome">返回首页</button>
+  <van-notify id="van-notify" />
+  <text class="t1">账号：</text>
+  <input type="text" class="count" value="{{count}}" placeholder="请输入账号" bindinput="save_count" />
+  <text class="t2">密码：</text>
+  <input type="password" class="pwd" value="{{pwd}}" placeholder="请输入密码" bindinput="save_pwd" />
+  <button type="primary" class="button1" plain bindtap="login" wx:if="{{show}}">登录</button>
+  <view class="sign_view" wx:else>
+    <text class="t3">验证码：</text>
+    <input type="password" class="code" value="{{code}}" placeholder="请输入验证码" bindinput="save_code"/>
+    <text class="t4" bindtap="updateCaptcha">{{_code}}</text>
+  </view>
+  <button type="primary" class="button2" plain bindtap="show" wx:if="{{show}}">注册</button>
+  <button type="primary" class="button2" plain bindtap="sign" wx:else>注册</button>
+  <button type="primary" class="button3" plain bindtap="show" wx:if="{{!show}}">返回登录</button>
+</view>

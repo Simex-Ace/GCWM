@@ -1,0 +1,36 @@
+<view class="main">
+  <view class="head" wx:if="{{address[0].address}}">
+    <text class="my_address">我的收货地址</text>
+    <!-- <text class="mange" bindtap="manage">管理</text> -->
+  </view>
+  <scroll-view class="scroll" scroll-y="true" wx:if="{{address[0].address}}">
+    <view wx:for="{{address}}" wx:key="key" class="address-item">
+      <view class="address-info">
+        <view>
+          <text class="address-name">{{item.name}}</text>
+          <text class="address-phone">{{item.phone}}</text>
+        </view>
+        <view class="address-detail">{{item.address}}</view>
+      </view>
+      <view class="edit-btn" data-index="{{index}}" bindtap="showEditDialog">编辑</view>
+      <view bindtap="delete" data-address="{{item}}" data-index="{{index}}" class="dele-btn">删除</view>
+      <view  class="default" wx:if="{{item.status==1}}">
+        <van-icon name="phone-circle" size="20px" /><text class="default_t">默认地址</text>
+      </view>
+      <view bindtap="changeStatus" wx:else data-address="{{item}}" data-index="{{index}}" class="stat-btn">设为默认地址</view>
+    </view>
+  </scroll-view>
+  <view class="edit-dialog" wx:if="{{showDialog}}">
+    <form bindsubmit="saveEdit">
+      <view class="edit-dialog-title">编辑地址</view>
+      <input class="edit-dialog-input" placeholder="姓名" name="name" value="{{editAddress.name}}" />
+      <input class="edit-dialog-input" placeholder="电话" name="phone" value="{{editAddress.phone}}" />
+      <input class="edit-dialog-input" placeholder="地址" name="address" value="{{editAddress.address}}" />
+      <button class="edit-dialog-btn" formType="submit">保存</button>
+      <button class="edit-dialog-btn" bindtap="hideEditDialog">取消</button>
+    </form>
+  </view>
+  <view class="add" bindtap="add">
+    添加收货地址
+  </view>
+</view>

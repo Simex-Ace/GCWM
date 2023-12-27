@@ -1,0 +1,20 @@
+<view class="main">
+  <view class="address">
+    <text class="t">收货人:</text><input type="text" class="input" placeholder="请输入名字" model:value="{{name}}" bindinput="nameinput" data-name="{{name}}" />
+  </view>
+  <view class="address">
+    <text class="t">手机号码:</text><input type="text" class="input" placeholder="请输入手机号码" model:value="{{phone}}" bindinput="phoneinput" data-phone="{{phone}}" />
+  </view>
+  <view class="address">
+    <text class="t">收货地址:</text><input type="text" class="input" placeholder="详细地区/楼栋名称" model:value="{{address}}" bindinput="addressinput" data-address="{{address}}" />
+  </view>
+  <checkbox-group class="check">
+    <checkbox checked="{{status}}" bindtap="setdefault">设为默认收货地址</checkbox>
+  </checkbox-group>
+  <view class="map_container">
+    <map class="map" id="map" longitude="{{longitude}}" latitude="{{latitude}}" scale="14" show-location="true" markers="{{markers}}" bindmarkertap="makertap"></map>
+  </view>
+  <view class="save" bindtap="saveTo">
+    保存地址
+  </view>
+</view>

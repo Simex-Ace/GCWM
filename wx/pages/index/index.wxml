@@ -1,0 +1,29 @@
+<view>
+  <!--搜索框-->
+  <SearchInput></SearchInput>
+  <!--轮播图 -->
+  <view class="swiperList">
+    <swiper autoplay circular indicator-dots>
+      <swiper-item wx:for="{{shopList}}" wx:key="goods_id" wx:if="{{item.style==1}}">
+        <navigator url="/pages/category/index?shop_id={{item.shop_id}}">
+          <image class="swiperList_img" mode="" src="{{item.img}}">
+          </image>
+        </navigator>
+      </swiper-item>
+    </swiper>
+  </view>
+  <view class="shopList">
+    <navigator url="/pages/category/index?shop_id={{item.shop_id}}" wx:for="{{shopList}}">
+      <view class="list">
+        <image mode="widthFix" class="shop_img" src="{{item.shop[0].img}}"></image>
+        <text class="shop_name">{{item.shop[0].name}}</text>
+        <text class="shop_score">{{item.shop[0].score}}分</text>
+        <text class="shop_sale">月售{{item.shop[0].sales}}+</text>
+        <text class="shop_qs">起送￥{{item.shop[0].qs_fee}}</text>
+        <text class="shop_ps">配送约￥{{item.shop[0].ps_fee}}</text>
+        <text class="shop_time">{{item.shop[0].time}}分钟</text>
+        <text class="shop_distance">{{item.shop[0].distance}}km</text>
+      </view>
+    </navigator>
+  </view>
+</view>

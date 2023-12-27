@@ -1,0 +1,16 @@
+<view class="main">
+  <van-notify id="van-notify" />
+  <button class="save" bindtap="save">保存</button>
+  <van-uploader accept="image" class="img" max-count="1" bind:after-read="afterRead" preview-image="false" deletable="false">
+    <image image-class="icon" class="img" src="{{user.img}}"></image>
+  </van-uploader>
+  <van-cell-group>
+    <van-field label="昵称" left-icon="contact" model:value="{{ user.name }}" placeholder="请输入用户名" bind:change="onChangeName" />
+    <van-field value="{{user.sex}}" label="性别" left-icon="like" disabled border="{{ false }}" bindtap="showSex" />
+    <van-field value="{{user.region}}" label="地区" left-icon="location" disabled border="{{ false }}" bindtap="showRegion" />
+    <van-field value="******" wx:if="{{!_showPassword}}" label="密码" left-icon="eye-o" disabled border="{{ false }}" bindtap="showPwd" />
+    <van-field wx:else value="{{user.password}}" label="密码" left-icon="eye" border="{{ false }}" bind:change="onChangePwd"/>
+  </van-cell-group>
+  <van-picker wx:if="{{_showSex}}" class="sex" columns="{{ sex }}" default-index="{{ 2 }}" bind:change="onChangeSex" />
+  <van-area wx:if="{{_showRegion}}" area-list="{{ areaList }}" value="{{Region}}" custom-class="my-area" item-height="44" bind:confirm="onChangeRegion" bind:cancel="onClose"/>
+</view>

@@ -1,0 +1,78 @@
+<Tabs tabs="{{tabs}}" bindtabsItemChange="handleTabsItemChange">
+  <view class="collect_main">
+    <view wx:if="{{orders.length==0}}" class="noorder"><image class="noorder_img" src="../../icons/noorder.png" mode="aspectFill"/></view>
+    <view wx:if="{{tabs[0].isActive}}" wx:for="{{orders}}" wx:for-index="index" wx:for-item="order">
+      <view class="order" bindtap="{{distap?order_detail:null}}" data-order="{{order}}">
+        <view>
+          <image class="shop_img" src="{{order.user[0].img}}" alt="" mode="aspectFit" />
+          <text class="shop_name">{{order.user[0].name}}</text>
+        </view>
+        <view class="order_status">
+          <text class="order_status_text" wx:if="{{order.status==4}}">订单已取消</text>
+          <text class="order_status_text" wx:if="{{order.status==0}}">用户已下单</text>
+          <text class="order_status_text" wx:if="{{order.status==1}}">订单已送出</text>
+          <text class="order_status_text" wx:if="{{order.status==2}}">待用户评价</text>
+          <text class="order_status_text" wx:if="{{order.status==3}}">订单已完成</text>
+        </view>
+        <image class="order_img" src="{{order.orders[0].food_image}}" alt="" mode="aspectFill" />
+        <view class="orders_name">
+          <text class="order_name" wx:if="{{order.orders[0]}}">{{order.orders[0].food_name}}</text>
+          <text class="order_name" wx:if="{{order.orders[1]}}">+{{order.orders[1].food_name}}</text>
+          <text class="order_name" wx:if="{{order.orders[2]}}">+{{order.orders[2].food_name}}</text>
+          <text class="order_name" wx:if="{{order.orders[3]}}">+{{order.orders[3].food_name}}</text>
+          <text class="order_name" wx:if="{{order.orders[4]}}">+{{order.orders[4].food_name}}</text>
+          <text class="order_name" wx:if="{{order.orders[5]}}">+{{order.orders[5].food_name}}</text>
+          <text class="order_name" wx:if="{{order.orders[6]}}">等{{order.orders.length}}件商品</text>
+        </view>
+        <view class="order_price">
+          <text>￥{{order.orders[0].totalPrice}}</text>
+        </view>
+        <view class="arrive" wx:if="{{order.status==0}}">
+          <text catchtap="ensure">确认出餐</text>
+          <modal title="是否确认出餐?" hidden="{{!showConfirmModal}}" data-order="{{order}}" data-status="1" data-msg="订单已送出" bindconfirm="confirmArrival" bindcancel="cancelArrival">
+          </modal>
+        </view>
+        <view class="arrive" wx:if="{{order.status==1}}">
+          <text catchtap="ensure">确认送达</text>
+          <modal title="是否确认送达?" hidden="{{!showConfirmModal}}" data-order="{{order}}" data-status="2" data-msg="订单已完成" bindconfirm="confirmArrival" bindcancel="cancelArrival">
+          </modal>
+        </view>
+      </view>
+    </view>
+    <view wx:if="{{tabs[1].isActive}}" wx:for="{{orders}}" wx:for-index="index" wx:for-item="order">
+      <view class="order" wx:if="{{order.status==0||order.status==1}}" bindtap="order_detail" data-order="{{order}}">
+        <view catchtap="To_shop" data-order="{{order}}">
+          <image class="shop_img" src="{{order.shop[0].img}}" alt="" mode="aspectFit" />
+          <text class="shop_name">{{order.shop[0].name}}</text>
+        </view>
+        <view class="order_status">
+          <text class="order_status_text" wx:if="{{order.status==0}}">用户已下单</text>
+          <text class="order_status_text" wx:if="{{order.status==1}}">订单已送出</text>
+        </view>
+        <image class="order_img" src="{{order.orders[0].food_image}}" alt="" mode="aspectFill" />
+        <view class="orders_name">
+          <text class="order_name" wx:if="{{order.orders[0]}}">{{order.orders[0].food_name}}</text>
+          <text class="order_name" wx:if="{{order.orders[1]}}">+{{order.orders[1].food_name}}</text>
+          <text class="order_name" wx:if="{{order.orders[2]}}">+{{order.orders[2].food_name}}</text>
+          <text class="order_name" wx:if="{{order.orders[3]}}">+{{order.orders[3].food_name}}</text>
+          <text class="order_name" wx:if="{{order.orders[4]}}">+{{order.orders[4].food_name}}</text>
+          <text class="order_name" wx:if="{{order.orders[5]}}">+{{order.orders[5].food_name}}</text>
+          <text class="order_name" wx:if="{{order.orders[6]}}">等{{order.orders.length}}件商品</text>
+        </view>
+        <view class="order_price">
+          <text>￥{{order.orders[0].totalPrice}}</text>
+        </view>
+        <view class="arrive" wx:if="{{order.status==0}}">
+          <text catchtap="ensure">确认出餐</text>
+          <modal title="是否确认出餐?" hidden="{{!showConfirmModal}}" data-order="{{order}}" data-status="1" data-msg="订单已送出" bindconfirm="confirmArrival" bindcancel="cancelArrival">
+          </modal>
+        </view>
+        <view class="arrive" wx:if="{{order.status==1}}">
+          <text catchtap="ensure">确认送达</text>
+          <modal title="是否确认送达?" hidden="{{!showConfirmModal}}" data-order="{{order}}" data-status="2" data-msg="订单已完成" bindconfirm="confirmArrival" bindcancel="cancelArrival">
+          </modal>
+        </view>
+      </view>
+    </view>
+  </view>
+</Tabs>
